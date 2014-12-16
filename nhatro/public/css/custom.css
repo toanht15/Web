@@ -1,0 +1,33 @@
+body {
+  padding-top: 60px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+/* footer */
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid #C0C0C0;
+	
+}
+hr{
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid #ffffff;
+}
+
+/*link*/
+a:link {
+		text-decoration: none;
+	}
+a:hover{
+		color: #33CC33;
+}
+
+.navbar-brand {
+	font-weight: bold;
+	font-size: 30px;
+	
+}
+
