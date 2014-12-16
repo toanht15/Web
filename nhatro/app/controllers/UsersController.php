@@ -123,7 +123,7 @@ class UsersController extends \BaseController {
 
 
 	public function postChangePassword(){
-			if(Auth::check()){
+		if(Auth::check()){
 
 			$user=User::where('email',Auth::user()->email)->first();
 			if(!Auth::validate(array('email'=>$user->email,'password'=>Input::get('password')))){
@@ -147,5 +147,12 @@ class UsersController extends \BaseController {
 	public function logout(){
 		Auth::logout();
 		return Redirect::to('/')->with('message','Bạn đã đăng xuất');
+	}
+
+	
+	public function check(){
+		if(User::check_email(Input::get("email")))
+			return "true";
+		else return "false";	
 	}
 }

@@ -11,35 +11,37 @@
         <a class="navbar-brand" href="/">Nhatro.com</a>
       </div>
     </div>
-    <div class="col-md-10">
+
       <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Tìm">
-        </div>
-        <button type="submit" class="btn btn-info">Tìm nhanh</button>
-      </form>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          @if(Auth::check())
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}} <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="">Sửa thông tin</a></li>
-              <li><a href="" data-toggle="modal" data-target="#change-password-modal">Đổi mật khẩu</a></li>
-            </ul>
-          </li>
-          <li><a href="{{action('UsersController@logout')}}">Đăng xuất</a></li>
-          <li><a href="">Đăng tin</a></li>
-          @else
-          <li><a href="/">Trang chủ</a></li>
-          <li><a href="" data-toggle="modal" data-target="#signup-modal">Đăng ký</a></li>
-          <li><a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
-          <li><a href="/posts/create">Đăng tin</a></li>
-          @endif
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
+          <div class="input-group">
+            <input type="text" class="form-control" Placeholder="Tìm kiếm">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!--/input-group--> 
+    </form>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        @if(Auth::check())
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Sửa thông tin</a></li>
+            <li><a href="" data-toggle="modal" data-target="#change-password-modal">Đổi mật khẩu</a></li>
+          </ul>
+        </li>
+        <li><a href="{{action('UsersController@logout')}}">Đăng xuất</a></li>
+        <li><a href="">Đăng tin</a></li>
+        @else
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="" data-toggle="modal" data-target="#signup-modal">Đăng ký</a></li>
+        <li><a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
+        <li><a href="/posts/create">Đăng tin</a></li>
+        @endif
+      </ul>
+    </div><!--/.nav-collapse -->
   </div>
+</div>
 </nav>
 
 <!--pop up login--> 
@@ -54,7 +56,7 @@
         <form method="post" action="{{Asset('/login')}}" id="form-login">
           <input type="text" name="user_input" id="user_input" placeholder="Email" class="form-control">
           <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-          <button class="btn btn-primary btn-block" id="dangnhap-btn">Đăng nhập</button>
+          <button class="btn btn-primary " id="dangnhap-btn">Đăng nhập</button>
         </form>
       </div>
     </div>
@@ -138,11 +140,11 @@ $("#form-register").validate({
       },
       email:{
         required:true,
-        email:true
-        // remote:{
-        //   url:"{{Asset('check')}}",
-        //   type:"POST"
-        // }
+        email:true,
+        remote:{
+          url:"{{Asset('check-email')}}",
+          type:"POST"
+        }
       }
     },
     messages:{
@@ -161,7 +163,7 @@ $("#form-register").validate({
       email:{
         required:"Vui lòng nhập email",
         email:"Định dạng email không đúng",
-        //remote:"Email đã được sử dụng. Vui lòng nhập email khác."
+        remote:"Email đã được sử dụng. Vui lòng nhập email khác."
       }
     }
   })

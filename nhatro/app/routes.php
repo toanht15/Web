@@ -42,3 +42,4 @@ Route::get('logout','UsersController@logout');
 Route::post('register','UsersController@postRegister');
 Route::post('login','UsersController@postLogin');
 Route::post('change-password','UsersController@postChangePassword');
+Route::post('check-email','UsersController@check');

@@ -23,4 +23,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	//check email
+	public static function check_email($email){
+		if (User::where("email","=",$email)->count()>0)
+			return false;
+		else return true;
+	}
+
 }
