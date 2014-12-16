@@ -53,7 +53,7 @@
         <h4 class="modal-title" id="myModalLabel">Đăng nhập</h4>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{Asset('/login')}}" id="form-login">
+        <form class="redesign" method="post" action="{{Asset('/login')}}" id="form-login">
           <input type="text" name="user_input" id="user_input" placeholder="Email" class="form-control">
           <input type="password" name="password" id="password" placeholder="Password" class="form-control">
           <button class="btn btn-primary " id="dangnhap-btn">Đăng nhập</button>
@@ -106,7 +106,7 @@ $("#form-login").validate({
         <h4 class="modal-title" id="myModalLabel">Đăng kí</h4>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{Asset('register')}}" id="form-register">
+        <form  class="redesign" method="post" action="{{Asset('register')}}" id="form-register">
           <input type="text" name="username" id="username" placeholder="Username" class="form-control">
           <input type="password" name="password" id="password_id" placeholder="Password" class="form-control">
           <input type="password" name="password_confirmation" id="password_confirmation_id" placeholder="Re-password" class="form-control">
@@ -181,9 +181,9 @@ $("#form-register").validate({
       </div>
       <div class="modal-body">
         <form action="{{Asset('change-password')}}" method="post" id="form-change-password" >
-          <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu cũ">
-          <input type="password" class="form-control" name="newpassword"  id="newpassword" placeholder=" Mật khẩu mới">
-          <input type="password" class="form-control" name="re_newpassword" id="re_newpassword" placeholder="Xác nhận mật khẩu mới">  
+          <input class="reset" type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu cũ">
+          <input class="reset" type="password" class="form-control" name="newpassword"  id="newpassword" placeholder=" Mật khẩu mới">
+          <input class="reset" type="password" class="form-control" name="re_newpassword" id="re_newpassword" placeholder="Xác nhận mật khẩu mới">  
           <button type="submit" class="btn btn-primary">Xác nhận</button>
         </form>
 
