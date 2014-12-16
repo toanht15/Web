@@ -180,10 +180,10 @@ $("#form-register").validate({
         <h4 class="modal-title" id="myModalLabel">Đổi mật khẩu</h4>
       </div>
       <div class="modal-body">
-        <form action="{{Asset('change-password')}}" method="post" id="form-change-password" >
-          <input class="reset" type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu cũ">
-          <input class="reset" type="password" class="form-control" name="newpassword"  id="newpassword" placeholder=" Mật khẩu mới">
-          <input class="reset" type="password" class="form-control" name="re_newpassword" id="re_newpassword" placeholder="Xác nhận mật khẩu mới">  
+        <form class="redesign" action="{{Asset('change-password')}}" method="post" id="form-change-password" >
+          <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu cũ">
+          <input type="password" class="form-control" name="newpassword"  id="newpassword" placeholder=" Mật khẩu mới">
+          <input type="password" class="form-control" name="re_newpassword" id="re_newpassword" placeholder="Xác nhận mật khẩu mới">  
           <button type="submit" class="btn btn-primary">Xác nhận</button>
         </form>
 
