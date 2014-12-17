@@ -13,7 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('pages.home');
+	$posts = DB::table('posts')->paginate(5);
+	
+	return View::make('pages.home')->with('posts', $posts);
 });
 
 Route::get('/about', function()

@@ -6,24 +6,17 @@ use Faker\Factory as Faker;
 class UsersTableSeeder extends Seeder {
 
 	public function run()
-	{
-		$faker = Faker::create();
-		User::truncate();
-
-		User::create(array(
-			'username' => 'philipbrown',
-			'first_name' => 'Philip',
-			'last_name' => 'Brown',
-			'email' => 'name@domain.com',
-			'password' => 'qwerty'
-			));
-		foreach(range(1, 10) as $index)
+	{		
+		for($i = 1; $i <= 30; $i++)
 		{
-            User::create([  
-                'username' => str_replace('.', '_', $faker->unique()->userName),  
-                'email' => $faker->email,  
-                'password' => 'password'
-            ]);  
+			$user = new User;
+			$user->username = "user$i";
+			$user->password = "user@123"."$i";
+			$user->email = "user"."$i"."@gmail.com";
+			// $user->timestamps = false;
+			$user->created_at = \Carbon\Carbon::now()->toDateTimeString();
+			$user->updated_at = \Carbon\Carbon::now()->toDateTimeString();
+			$user->save();
 		}
 	}
 

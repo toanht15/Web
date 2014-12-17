@@ -17,10 +17,12 @@ class CreatePostsTable extends Migration {
 			$table->increments('post_id');
 			$table->string('title');
 			$table->text('content');
-			$table->int('area');
+			$table->double('area');
+			$table->double('price');
 			$table->string('district');
 			$table->string('city');
-			$table->integer('view')->nullable();
+			$table->integer('user_id');
+			$table->unsignedInteger('view_count')->nullable();
 			$table->timestamps();
 		});
 	}
@@ -34,6 +36,6 @@ class CreatePostsTable extends Migration {
 	public function down()
 	{
 		Schema::drop('posts');
-	}
+	}	
 
 }
