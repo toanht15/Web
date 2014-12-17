@@ -26,7 +26,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}} <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="">Sửa thông tin</a></li>
+            <li><a href="{{action('UsersController@edit_profile')}}">Sửa thông tin</a></li>
             <li><a href="" data-toggle="modal" data-target="#change-password-modal">Đổi mật khẩu</a></li>
           </ul>
         </li>

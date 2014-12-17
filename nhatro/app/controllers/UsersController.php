@@ -155,4 +155,8 @@ class UsersController extends \BaseController {
 			return "true";
 		else return "false";	
 	}
+
+	public function edit_profile(){
+		return View::make('users.show');
+	}
 }

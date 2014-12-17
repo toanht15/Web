@@ -37,6 +37,7 @@ Route::resource('posts', 'PostsController');
 //Edit
 
 //get
+Route::get('edit-profile','UsersController@edit_profile');
 Route::get('logout','UsersController@logout');
 //post
 Route::post('register','UsersController@postRegister');
