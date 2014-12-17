@@ -145,18 +145,17 @@
 				</div>
 				<!-- dropdown tinh thanh -->
 				<div class="form-group">
-					<select class="form-control">
-						<option selected="selected">Chọn Tỉnh/Thành</option>
-						<option>Ha Noi</option>
-						<option>TP.Ho Chi Minh</option>
+					<select name="tinh" id="tinh" onchange="populate(this.id,'huyen')" class="form-control">
+						<option value="">Chọn Tỉnh/Thành</option>
+						<option value="1">Hà Nội</option>
+						<option value="2">Hồ Chí Minh</option>
 					</select>
 				</div>
 				<!-- ./dropdown tinh thanh -->
 				<!-- dropdown quan huyen -->
 				<div class="form-group">
-					<select class="form-control">
-						<option selected="selected">Chọn Quận/Huyện</option>				
-						<option>ABC</option>
+					<select name="huyen" id="huyen" class="form-control">
+						<option value="">Chọn Quận/Huyện</option>				
 					</select>
 				</div>
 				<!-- ./dropdown quan huyen -->
