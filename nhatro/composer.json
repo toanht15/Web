@@ -7,7 +7,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"way/generators": "~2.0",
-		"twitter/bootstrap":"*"
+		"twitter/bootstrap":"*",
+		"fzaninotto/faker": "~1.4"
 		},
 	"autoload": {
 		"classmap": [

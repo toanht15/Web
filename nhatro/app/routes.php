@@ -26,18 +26,18 @@ Route::get('/contact', function()
 	return View::make('pages.contact');
 });
 
+Route::get('users/show', function()
+{
+	return View::make('users.show');
+});
 //Route::resource('users', 'UsersController');
 
 Route::resource('posts', 'PostsController');
-
 
 //Edit
 
 //get
 Route::get('logout','UsersController@logout');
-
-
-
 //post
 Route::post('register','UsersController@postRegister');
 Route::post('login','UsersController@postLogin');

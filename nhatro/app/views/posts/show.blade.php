@@ -1,1 +1,0 @@
-/var/www/project/nhatro.com/app/views/posts/show.blade.php
