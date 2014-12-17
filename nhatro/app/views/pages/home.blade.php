@@ -144,13 +144,17 @@
 					</div>
 				</div>
 				<!-- dropdown tinh thanh -->
+				<form action="{{Asset('/search')}}" method="POST" role="form">
+
+				
 				<div class="form-group">
-					<select name="tinh" id="tinh" onchange="populate(this.id,'huyen')" class="form-control">
+					<select name="tinh" id="tinh" onchange="document.getElementById('text_content').value=this.options[this.selectedIndex].text" onchange="populate(this.id,'huyen')"  class="form-control">
 						<option value="">Chọn Tỉnh/Thành</option>
 						<option value="1">Hà Nội</option>
 						<option value="2">Hồ Chí Minh</option>
 					</select>
 				</div>
+				<input type="hidden" name="test_text" id="text_content" value="" />
 				<!-- ./dropdown tinh thanh -->
 				<!-- dropdown quan huyen -->
 				<div class="form-group">
@@ -181,6 +185,7 @@
 				</div>
 				<!-- ./dropdown dien tich -->
 				<button class="btn btn-info col-sm-3 pull-right" type="submit">Tìm</button>
+				</form>
 			</div>
 			<!-- ./Khung tim kiem -->
 		</div>

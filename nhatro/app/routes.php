@@ -44,5 +44,4 @@ Route::post('register','UsersController@postRegister');
 Route::post('login','UsersController@postLogin');
 Route::post('change-password','UsersController@postChangePassword');
 Route::post('check-email','UsersController@check');
-
-
+Route::post('search','UsersController@search');

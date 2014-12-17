@@ -31,12 +31,12 @@
           </ul>
         </li>
         <li><a href="{{action('UsersController@logout')}}">Đăng xuất</a></li>
-        <li><a href="">Đăng tin</a></li>
+        <li><a href="/posts/create">Đăng tin</a></li>
         @else
         <li><a href="/">Trang chủ</a></li>
         <li><a href="" data-toggle="modal" data-target="#signup-modal">Đăng ký</a></li>
         <li><a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
-        <li><a href="/posts/create">Đăng tin</a></li>
+        <li><a href="" data-toggle="modal" data-target="#thongbao-modal">Đăng tin</a></li>
         @endif
       </ul>
     </div><!--/.nav-collapse -->
@@ -230,3 +230,19 @@ $("#form-change-password").validate({
     }
   })
 </script>
+
+
+<!--popup thông báo chưa đăng nhập--> 
+<div class="modal fade" id="thongbao-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chưa đăng nhập. Hãy <a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a> để thực hiện đăng tin</p>
+      </div>
+    </div>
+  </div>
+</div>

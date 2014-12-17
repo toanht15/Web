@@ -159,4 +159,10 @@ class UsersController extends \BaseController {
 	public function edit_profile(){
 		return View::make('users.show');
 	}
+
+	public function search(){
+		$t=Input::get('tinh');
+		$h=Input::get('text_text');
+		return Redirect::to('/')->with('message',$h);
+	}
 }
