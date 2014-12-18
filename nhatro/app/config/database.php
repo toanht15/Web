@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'nhatro',
+			'database'  => 'nhatro5',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

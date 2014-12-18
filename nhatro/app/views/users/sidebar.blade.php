@@ -8,9 +8,12 @@
                 <a href=""><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
             </li>
             <li>
-                <a href="index.html"><i class="fa fa-table fa-fw"></i> Danh sách bài đăng</a>
+                <a href="{{action('UsersController@show',Auth::user()->id)}}"><i class="fa fa-table fa-fw"></i> Danh sách bài đăng</a>
             </li>
+            @if(Auth::user()->role==1)
             <li>
-                <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Bài theo dõi</a></li>                                                                    
+                <a href="/users/listusers"><i class="fa fa-files-o fa-fw"></i>Danh sách thành viên</a>
+            </li>  
+            @endif                                                                  
         </ul>
 </div>

@@ -49,11 +49,16 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($user_id)
 	{
-		$user = User::findOrFail($id);
 
-		return View::make('users.show', compact('user'));
+
+	$post = Post::where('user_id', '=', $user_id)->get();
+	return View::make('users.listposts')->with('posts', $post);
+
+		// $user = User::findOrFail($id);
+
+		// return View::make('users.show', compact('user'));
 	}
 
 	/**
@@ -116,7 +121,7 @@ class UsersController extends \BaseController {
 
 	public function postLogin(){
 		if(Auth::attempt(array('email'=>Input::get('user_input'),'password'=>Input::get('password')))){
-			return Redirect::to('/')->with('message','Bạn đã đăng nhập thành công');
+			return Redirect::to('/');
 		}
 		return Redirect::to('/')->with('message','Tài khoản hoặc mật khẩu không đúng');
 	}
@@ -149,7 +154,7 @@ class UsersController extends \BaseController {
 		return Redirect::to('/')->with('message','Bạn đã đăng xuất');
 	}
 
-	
+	 	
 	public function check(){
 		if(User::check_email(Input::get("email")))
 			return "true";
@@ -157,12 +162,15 @@ class UsersController extends \BaseController {
 	}
 
 	public function edit_profile(){
-		return View::make('users.show');
+		$user= Auth::user();
+		$user->firstname=Input::get('firstname');
+		$user->lastname=Input::get('lastname');
+		$user->phonenumber=Input::get('phonenumber');
+		$user->address=Input::get('address');
+		$user->save();
+
+		return Redirect::to('edit-profile');
 	}
 
-	public function search(){
-		$t=Input::get('tinh');
-		$h=Input::get('text_text');
-		return Redirect::to('/')->with('message',$h);
-	}
+
 }

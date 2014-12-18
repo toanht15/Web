@@ -1,9 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<head>
-	
-</head>
-<body>
+
 	<div class=" container">
 		<!-- Body -->
 		<div class="row" >
@@ -11,7 +8,7 @@
 			<div class="col-md-9">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<strong>Danh sách tin</strong>		
+						<strong>Kết quả tìm kiếm</strong>
 					</div>
 				</div>
 
@@ -21,17 +18,16 @@
 				@endif
 				<!-- Danh sach tin -->
 				<div >
-					<div align="center"> {{ $posts->links()}}</div>
-					@foreach ($posts as $post)
+				@foreach ($posts as $post)
 					
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<div class="panel-title">{{$post->title}}
-										<div class="pull-right">{{HTML::linkRoute('posts.show','Xem chi tiết',$post->id,['target'=>'_blank'])}}
-											&raquo
-										</div>
+									<div class="pull-right">{{HTML::linkRoute('posts.show','Xem chi tiết',$post->id,['target'=>'_blank'])}}
+									&raquo
+									</div>
 										<!-- <div style="float:right">Lưu &raquo
 											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
 										</div> -->
@@ -41,33 +37,30 @@
 									<!-- <p>{{ $post->content }}</p> -->
 									<div class=" col-md-4">
 										<ul>
-											<li><i class="fa fa-money fa-fw"></i> Giá: {{ $post->price}} VND</li>
-											<li><i class="fa fa-square fa-fw"></i>Diện tích:  {{ $post->area}} m2</li					>
-											</ul>
-										</div>
-										<div class="col-md-4">
-											<ul>
-												
-												<li><i class="fa fa-user fa-fw"></i> Người đăng: {{$user=DB::table('users')->where('id',$post['user_id'])->pluck('username')}}</li>
-												<li><i  class="fa fa-home fa-fw"></i>Địa chỉ:  {{ $post->district}} - {{ $post->city}}</li>
-											</ul>
-										</div>
-										<div class="col-md-4">
-											<ul>
-												<li><i class="fa fa-upload fa-fw"></i>Ngày đăng: {{ date('d/m/Y', strtotime($post->created_at)) }}</li>
-											</ul>
-										</div>
+										    <li><i class="fa fa-money fa-fw"></i> Giá: {{ $post->price}} VND</li>
+										    <li><i class="fa fa-square fa-fw"></i>Diện tích: {{ $post->area}} m2</li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul>
+										    <li><i class="fa fa-user fa-fw"></i> Người đăng: {{$user=DB::table('users')->where('id',$post->user_id)->pluck('username')}} </li>
+										    <li><i  class="fa fa-home fa-fw"></i>Địa chỉ: {{ $post->district}} - {{ $post->city}}</li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul>
+										    <li><i class="fa fa-upload fa-fw"></i>Ngày đăng: {{ date('d/m/Y', strtotime($post->created_at)) }}</li>
+										</ul>
 									</div>
 								</div>
-							</div>					
-							<!-- <div>{{ $post->title }}</div> -->
-							<!-- <a href="{{ URL::to('posts/'.$post->post_id)}}">link to post</a> -->
-							<!-- 	{{HTML::linkRoute('posts.show','View details',$post->post_id,['target'=>'_blank'])}} -->
-						</div>
-						@endforeach					
-						<div align="center"> {{ $posts->links()}}</div>
+							</div>
+						</div>					
+
 					</div>
+				@endforeach					
+
 				</div>
+			</div>
 				<!-- Khung tim kiem -->
 				<div class="col-md-3">
 					<div class="panel panel-info">
@@ -98,7 +91,7 @@
 						<div class="form-group">
 							<select name="area" id="area" class="form-control">
 								<option value="" selected="selected">Chọn Diện tích</option>
-								<option value="1"> <15 m2 </option>
+								<option value="1"> <15m2</option>
 								<option value="2">15-30m2</option>
 								<option value="3">>=30m2</option>
 							</select>
@@ -120,6 +113,4 @@
 				<!-- ./Khung tim kiem -->
 			</div>
 		</div>
-
-	</body>
-	@stop
+@stop
