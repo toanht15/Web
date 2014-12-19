@@ -20,120 +20,53 @@
 				<?php Session::forget("message") ?>
 				@endif
 				<!-- Danh sach tin -->
-				<div>
+				<div >
+				<div align="center"> {{ $posts->links()}}</div>
+				@foreach ($posts as $post)
+					
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<div class="panel panel-info">
 								<div class="panel-heading">
-									<div class="panel-title">Tin 3
-										<div style="float:right">Lưu &raquo
+									<div class="panel-title">{{$post->title}}
+									<div class="pull-right">{{HTML::linkRoute('posts.show','Xem chi tiết',$post->post_id,['target'=>'_blank'])}}
+									&raquo
+									</div>
+										<!-- <div style="float:right">Lưu &raquo
 											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<div class="panel-body">
-									<p>Tin cho thue 1</p>
-								</div>
-								<div class="panel-footer">
-									
+									<!-- <p>{{ $post->content }}</p> -->
+									<div class=" col-md-4">
+										<ul>
+										    <li><i class="fa fa-money fa-fw"></i> Giá: {{ $post->price}} VND</li>
+										    <li><i class="fa fa-square fa-fw"></i>Diện tích: {{ $post->area}} m2</li					>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul>
+										    <li><i class="fa fa-user fa-fw"></i> Người đăng:
+										     </li>
+										    
+										    <li><i  class="fa fa-home fa-fw"></i>Địa chỉ: {{ $post->district}}- {{ $post->city}}</li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul>
+										    <li><i class="fa fa-upload fa-fw"></i>Ngày đăng: {{ date('d/M/Y', strtotime($post->created_at)) }}</li>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-						<!-- /.col-md-12 -->
-						
-						<div class="col-md-6">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<div class="panel-title">Tin 3
-										<div style="float:right">Lưu &raquo
-											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
-										</div>
-									</div>
-								</div>
-								<div class="panel-body">
-									<p>Tin cho thue 2</p>
-								</div>
-								<div class="panel-footer">
-									
-								</div>
-							</div>
-						</div>
-						<!-- /.col-md-12 --> 
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<div class="panel-title">Tin 3
-										<div style="float:right">Lưu &raquo
-											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
-										</div>
-									</div>
-								</div>
-								<div class="panel-body">
-									<p>Tin cho thue 3</p>
-								</div>
-								<div class="panel-footer">
-									
-								</div>
-							</div>                               
-						</div>
-
-						<div class="col-md-6">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<div class="panel-title">Tin 3
-										<div style="float:right">Lưu &raquo
-											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
-										</div>
-									</div>
-								</div>
-								<div class="panel-body">
-									<p>Tin cho thue 3</p>
-								</div>
-								<div class="panel-footer">
-									
-								</div>
-							</div>                               
 						</div>					
+						<!-- <div>{{ $post->title }}</div> -->
+						<!-- <a href="{{ URL::to('posts/'.$post->post_id)}}">link to post</a> -->
+					<!-- 	{{HTML::linkRoute('posts.show','View details',$post->post_id,['target'=>'_blank'])}} -->
 					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<div class="panel-title">Tin 3
-										<div style="float:right">Lưu &raquo
-											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
-										</div>
-									</div>
-								</div>
-								<div class="panel-body">
-									<p>Tin cho thue 3</p>
-								</div>
-								<div class="panel-footer">
-									
-								</div>
-							</div>                               
-						</div>
-
-						<div class="col-md-6">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<div class="panel-title">Tin 3
-										<div style="float:right">Lưu &raquo
-											<input type="checkbox" id="checkbox1" class="checkbox style-2 pull-right"/>
-										</div>
-									</div>
-								</div>
-								<div class="panel-body">
-									<p>Tin cho thue 3</p>
-								</div>
-								<div class="panel-footer">
-									
-								</div>
-							</div>                               
-						</div>
-					</div>					
+				@endforeach					
+				<div align="center"> {{ $posts->links()}}</div>
 				</div>
 			</div>
 			<!-- Khung tim kiem -->

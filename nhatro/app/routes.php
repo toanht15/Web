@@ -13,7 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('pages.home');
+	$posts = Post::orderBy('created_at', 'DESC')->paginate(5);
+	// $user = User::whereId($posts->user_id)->first();
+	return View::make('pages.home')->with('posts', $posts);	
 });
 
 Route::get('/about', function()
@@ -30,10 +32,33 @@ Route::get('users/show', function()
 {
 	return View::make('users.show');
 });
+
+Route::get('posts/{post_id}', function($id)
+{
+	$post = Post::wherePost_id($id)->first();
+	$user = User::whereId($post['user_id'])->first();
+	return View::make('posts.show')->with('post', $post)->with('user', $user);
+});
 //Route::resource('users', 'UsersController');
+Route::get('users/{id}/listposts', function($id)
+{
+	$post = Post::where('id', '=', $id)->get();
+	return View::make('users.listposts')->with('posts', $post);
+});
+
+// Route::get('users/{id}', function($id)
+// {
+// 	$u = User::whereId($id)->first();
+// 	return View::make('users.show')->with('u', $u);
+// });
 
 Route::resource('posts', 'PostsController');
 
+Route::get('users/listusers', function()
+{
+	$users = User::all();
+	return View::make('users.listusers')->with('users', $users);
+});
 //Edit
 
 //get

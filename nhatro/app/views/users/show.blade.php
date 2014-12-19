@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		@include('users.sidebar')
-		<div class="col-md-9">
+		<div class="col-md-12">
 			<form action="" class="redesign" method="POST" role="form">
 				<legend>Chỉnh sửa thông tin cá nhân</legend>
 

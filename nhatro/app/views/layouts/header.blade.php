@@ -26,17 +26,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}} <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="{{action('UsersController@edit_profile')}}">Sửa thông tin</a></li>
-            <li><a href="" data-toggle="modal" data-target="#change-password-modal">Đổi mật khẩu</a></li>
+            <li><a href="{{action('UsersController@edit_profile')}}"><i class="fa fa-edit fa-fw"></i>Sửa thông tin</a></li>
+            <li><a href="" data-toggle="modal" data-target="#change-password-modal"><i class="fa fa-wrench fa-fw"></i>Đổi mật khẩu</a></li>
           </ul>
         </li>
-        <li><a href="{{action('UsersController@logout')}}">Đăng xuất</a></li>
-        <li><a href="">Đăng tin</a></li>
+        <li><a href="{{action('UsersController@logout')}}"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a></li>
+        <li><a href="/posts/create"><i class="fa fa-pencil fa-fw"></i>Đăng tin</a></li>
         @else
-        <li><a href="/">Trang chủ</a></li>
-        <li><a href="" data-toggle="modal" data-target="#signup-modal">Đăng ký</a></li>
-        <li><a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
-        <li><a href="/posts/create">Đăng tin</a></li>
+        <li><a href="/"><i class="fa fa-home fa-fw"></i>Trang chủ</a></li>
+        <li><a href="" data-toggle="modal" data-target="#signup-modal"><i class="fa  fa-toggle-up  fa-fw"></i>Đăng ký</a></li>
+        <li><a href="" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in fa-fw"></i>Đăng nhập</a></li>
+        <li><a href="/posts/create"><i class="fa fa-pencil fa-fw"></i>Đăng tin</a></li>
         @endif
       </ul>
     </div><!--/.nav-collapse -->
