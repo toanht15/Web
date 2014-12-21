@@ -1,4 +1,7 @@
 @extends('layouts.default')
+@section('title')
+Danh sách tin 
+@stop
 @section('content')
 
 <div class="container">

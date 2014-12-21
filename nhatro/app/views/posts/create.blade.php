@@ -1,4 +1,7 @@
 @extends('layouts.default')
+@section('title')
+Đăng tin
+@stop
 @section('content')
 
 <div class="container-fluid">

@@ -11,19 +11,19 @@
         <a class="navbar-brand" href="/">Nhatro.com</a>
       </div>
     </div>
+    <form  action="{{asset('/search2')}}" method="post" class="navbar-form navbar-left" role="search">
 
-      <form  action="{{asset('/search2')}}" method="post" class="navbar-form navbar-left" role="search">
-
-          <div class="input-group">
-            <input type="text" name="string" id="string_id" class="form-control" Placeholder="Tìm kiếm">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
-            </span>
-          </div><!--/input-group-->  
+      <div class="input-group">
+        <input type="text" name="string" id="string_id" class="form-control" Placeholder="Tìm kiếm">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
+        </span>
+      </div><!--/input-group-->  
     </form>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
+        <li><a href="/"><i class="fa fa-home fa-fw"></i>Trang chủ</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{Auth::user()->username}} <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -49,7 +49,7 @@
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div align="center" class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">Đăng nhập</h4>
       </div>
@@ -57,7 +57,7 @@
         <form class="redesign" method="post" action="{{Asset('/login')}}" id="form-login">
           <input type="text" name="user_input" id="user_input" placeholder="Email" class="form-control">
           <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-          <button class="btn btn-primary " id="dangnhap-btn">Đăng nhập</button>
+          <div align="center"><button class="btn btn-primary " id="dangnhap-btn">Đăng nhập</button></div>
         </form>
       </div>
     </div>
@@ -66,12 +66,12 @@
 
 <!--kiểm tra dữ liệu login-->
 <script type="text/javascript">
-$("#form-login").validate({
-  rules:{
-    user_input:{
-      required:true,
-      minlength:3,
-      email:true,
+  $("#form-login").validate({
+    rules:{
+      user_input:{
+        required:true,
+        minlength:3,
+        email:true,
         // remote:{
         //  url:"{{Asset('check/check-username')}}",
         //  type:"POST"
@@ -102,7 +102,7 @@ $("#form-login").validate({
 <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div align="center" class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">Đăng kí</h4>
       </div>
@@ -122,11 +122,11 @@ $("#form-login").validate({
 
 <!--kiểm tra dữ liệu đăng kí--> 
 <script type="text/javascript">
-$("#form-register").validate({
-  rules:{
-    username:{
-      required:true,
-      minlength:3,
+  $("#form-register").validate({
+    rules:{
+      username:{
+        required:true,
+        minlength:3,
         // remote:{
         //  url:"{{Asset('check/check-username')}}",
         //  type:"POST"
@@ -178,14 +178,14 @@ $("#form-register").validate({
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Đổi mật khẩu</h4>
+        <h4 align="center" class="modal-title" id="myModalLabel">Đổi mật khẩu</h4>
       </div>
       <div class="modal-body">
         <form class="redesign" action="{{Asset('change-password')}}" method="post" id="form-change-password" >
           <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu cũ">
           <input type="password" class="form-control" name="newpassword"  id="newpassword" placeholder=" Mật khẩu mới">
           <input type="password" class="form-control" name="re_newpassword" id="re_newpassword" placeholder="Xác nhận mật khẩu mới">  
-          <button type="submit" class="btn btn-primary">Xác nhận</button>
+          <div align="center"><button type="submit" class="btn btn-primary">Xác nhận</button></div>
         </form>
 
       </div>
@@ -196,11 +196,11 @@ $("#form-register").validate({
 
 <!--Kiểm tra dữ liệu password--> 
 <script type="text/javascript">
-$("#form-change-password").validate({
-  rules:{
-    password:{
-      required:true,
-      minlength:6,
+  $("#form-change-password").validate({
+    rules:{
+      password:{
+        required:true,
+        minlength:6,
         // remote:{
         //  url:"{{Asset('check/check-username')}}",
         //  type:"POST"

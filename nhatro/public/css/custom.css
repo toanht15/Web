@@ -30,7 +30,27 @@ a:hover{
 	font-size: 30px;
 	
 }
-ul
-{
+ul.redraw {
     list-style-type: none;
+}
+form.redesign {
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+form input {
+	margin-bottom: 10px;
+}
+
+label.error {
+	color: #c0392b;
+}
+
+div.redraw {
+    border: 1px solid #a1a1a1;
+    background: #d9edf7;
+    border-radius: 1px;
+    margin-top:2px;
 }
